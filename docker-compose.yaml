@@ -1,0 +1,55 @@
+services:
+  solr:
+    build:
+      context: ./solr
+      dockerfile: Dockerfile
+    container_name: solr
+    ports:
+      - "8983:8983"
+    networks:
+      app_network:
+        ipv4_address: 10.10.10.2
+
+  front:
+    build:
+      context: ./front-end
+      dockerfile: Dockerfile
+    container_name: front
+    ports:
+      - "80:80"
+    networks:
+      app_network:
+        ipv4_address: 10.10.10.3
+
+  php-webserver:
+    build:
+      context: ./Back
+      dockerfile: Dockerfile
+    container_name: back
+    ports:
+      - "8080:80"
+    networks:
+      app_network:
+        ipv4_address: 10.10.10.4
+
+  api:
+    build:
+      context: ./api-gen-archivos
+      dockerfile: Dockerfile
+    container_name: api-gen-archivos
+    environment:
+      - SOLR_HOST=10.10.10.2
+      - SOLR_PORT=8983
+      - SOLR_CORE=ProyectoFinal
+    ports:
+      - "3000:3000"
+    networks:
+      app_network:
+        ipv4_address: 10.10.10.5
+
+networks:
+  app_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.10.10.0/24
