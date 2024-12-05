@@ -11,6 +11,13 @@ Proyecto de la asignatura Búsqueda y Recuperación de Información en la Web
 | Jesús Fernando Méndez Avilés | <img src="https://github.com/user-attachments/assets/400f5776-8ad2-48a0-8cd6-47d56c160444" width="200"> |
 | Rafael Alberto Perea Hernández | 
 
+## Video Demo
+
+[![Watch the video](https://img.youtube.com/vi/r4D9sl5lekM/0.jpg)](https://youtu.be/r4D9sl5lekM)
+
+# Como ejecutar la aplicación
+
+
 ## **Requisitos Previos**
 - Docker y Docker Compose instalados.
 - Espacio suficiente en disco.
